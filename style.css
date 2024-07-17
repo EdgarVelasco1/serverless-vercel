@@ -1,0 +1,8 @@
+#todo-list li{
+    cursor: pointer;
+    list-style-type: none;
+}
+
+#todo-list li:hover{
+    background-color: #c3b6b6;
+}
