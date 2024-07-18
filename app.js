@@ -1,5 +1,12 @@
 // console.log('estoy aqui escuchando')
-const todos = []
+const todos = JSON.parse(localStorage.getItem('todos')) || []
+
+//para almacenar los datos en local storage
+actualizarTodos = (todos) => {
+    const todosString = JSON.stringify(todos)
+    //console.log(todosString)
+    localStorage.setItem('todos',todosString)
+}
 
 const render = () => {
     const todoList = document.getElementById('todo-list')
@@ -18,11 +25,15 @@ const render = () => {
             todos.splice(i,1)//para solucionar que los indices no se actualizan, hay que llamar nuevamente a render
             render()
         })
+
     })
+
     const totalTodos = document.getElementById('total-todos')
-    const totalTodosPlantilla = '<label>'+ 'N° Elementos:' + todos.length +'</label>'
+    //const totalTodosPlantilla = '<label>'+'Elementos en canasta: '+ todos.length +'</label>'
+    const totalTodosPlantilla = 'N° Productos en canasta: '+todos.length
     totalTodos.innerHTML = totalTodosPlantilla
 
+    actualizarTodos(todos)
 }
 
 window.onload = () => {
@@ -37,5 +48,6 @@ window.onload = () => {
 
         todos.push(todoText)
         render()
+        actualizarTodos(todos)
     }
 }
