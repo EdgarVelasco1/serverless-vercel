@@ -1,7 +1,13 @@
 {
     "version": 2,
-    "name": "serverless",
-    "routes":[
-        { "src": "/api/(.*)", "dest": "/api/index.js"}
-    ]    
-}
+    "routes": [
+      {
+        "src": "/api",
+        "dest": "/api/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/aplicacion/index.html"
+      }
+    ]
+  }
