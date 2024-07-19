@@ -1,4 +1,3 @@
-// console.log('estoy aqui escuchando')
 const todos = JSON.parse(localStorage.getItem('todos')) || []
 
 //para almacenar los datos en local storage
